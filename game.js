@@ -1,12 +1,15 @@
+const prompt = require("prompt-sync")({ sigint: true });
+
 class Mastermind {
   constructor() {
-    this.code = this.generateCode(4);
+    this.code = this._generateCode(4);
     this.guesses = 10;
     this.guessHistory = this._fill();
+    this.win = false;
   }
 
-  generateCode(length) {
-    const CHARACTERS = "rgba".split("");
+  _generateCode(length) {
+    const CHARACTERS = "@!*$".split("");
     let string = "";
 
     for (let i = 0; i < length; i++) {
@@ -17,45 +20,49 @@ class Mastermind {
   }
 
   _fill() {
-    let history = {}
-    let guess = { prev: "0000", match: 0, guesses: 0 };
+    let history = {};
+    let guess = { prev: "0000", match: null };
 
-    for(let i = 0; i < this.guesses; i++){
-        history = {...history, ["guess " + (i+1)]: guess }
+    for (let i = 0; i < this.guesses; i++) {
+      history = { ...history, ["guess " + (i + 1)]: guess };
     }
 
     return history;
   }
 
-  guess(query) {
-    if (this.code.length != query.length)
-      return "Make sure your guess matches the length of the code";
+  guess() {
+    const query = prompt("WHAT'S THE SEQUENCE!!! ");
 
-    if (this.guesses === 0) return "lose";
-    this.guesses--;
-
-    let count = 0;
-    let win = false;
-
-    for (let i = 0; i < this.code.length; i++) {
-      if (this.code[i] === query[i]) {
-        count++;
-      }
-
-      if (count === this.code.length) {
-        win = true;
-      }
+    // format query
+    if (this.code.length !== query.length) {
+      console.log("Make sure your guess matches the length of the code");
+      return;
     }
 
-    if (win) {
-      return win;
+    // check if lose
+    if (this.guesses === 0) return "lose";
+    // decrease guess
+    this.guesses--;
+
+    // if code === query they win
+    if (this.code === query) this.win = true;
+    else {
+      var count = 0;
+      for (let i = 0; i < this.code.length; i++) {
+        if (this.code[i] === query[i]) count++;
+      }
+    }
+    if (this.win === true) {
+      console.log("win!!", this.code);
+      return;
     } else {
-      let guess = { prev: query, match: count, guesses: this.guesses };
+      let guess = { prev: query, match: count };
       // getting the guess number and appending that to the object as a key
       this.guessHistory = {
         ...this.guessHistory,
         ["guess " + (10 - this.guesses)]: guess,
       };
+      console.table(this.guessHistory);
       return count;
     }
   }

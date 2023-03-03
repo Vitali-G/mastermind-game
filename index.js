@@ -1,8 +1,20 @@
-const Mastermind = require('./game.js')
+const Mastermind = require("./game.js");
 
 const game = new Mastermind();
-console.log('correct code: ', game.code);
-game.guess("rgba")
-console.table(game.guessHistory);
-game.guess("rrbr")
-console.table(game.guessHistory);
+
+function intro() {
+  console.log(
+    "Welcome to mastermind, you have 10 guesses to make sure you dont blow up! \n"
+  );
+  console.log("Acceptable Characters: @!*$ \n");
+  console.log("Guess the 4 letter sequence \n");
+
+  console.log("use ^C to exit game.");
+}
+
+console.clear();
+intro();
+while (!game.win && game.guesses) {
+  console.log(game.code);
+  game.guess();
+}

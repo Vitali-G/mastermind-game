@@ -1,7 +1,7 @@
 {
   "name": "mastermind-game",
   "version": "1.0.0",
-  "description": "",
+  "description": "Mastermind, guess the bomb sequence!",
   "main": "index.js",
   "scripts": {
     "dev": "node .",

@@ -1,5 +1,4 @@
 const Mastermind = require("./game.js");
-
 const game = new Mastermind();
 
 function intro() {

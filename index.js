@@ -4,7 +4,7 @@ class Mastermind {
     }
   
     generateCode(length) {
-      const CHARACTERS = "abcd".split("");
+      const CHARACTERS = "rgba".split("");
       let string = "";
   
       for (let i = 0; i < length; i++) {
@@ -42,4 +42,4 @@ class Mastermind {
   const game = new Mastermind({ wordLength: 4 });
   
   console.log(game.code);
-  console.log(game.guess("dbca"));
+  console.log(game.guess("rgba"));

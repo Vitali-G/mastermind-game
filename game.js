@@ -5,7 +5,7 @@ class Mastermind {
     this.code = this._generateCode(4);
     this.guesses = 10;
     this.guessHistory = this._fill();
-    this.win = false;
+    this.status = null;
   }
 
   _generateCode(length) {
@@ -35,24 +35,31 @@ class Mastermind {
     console.clear()
     // format query
     if (this.code.length !== query.length) {
+      console.table(this.guessHistory);
       console.log("Make sure your guess matches the length of the code");
       return;
     }
 
     // check if lose
-    if (this.guesses === 0) return "lose";
+    if (this.guesses === 1) {
+      console.clear()
+      console.table(this.guessHistory);
+      console.log("BOOOOOOOM YOU DEAD")
+      this.status = false;
+      return
+    }
       // decrease guess
     this.guesses--;
 
     // if code === query they win
-    if (this.code === query) this.win = true;
+    if (this.code === query) this.status = true;
     else {
       var count = 0;
       for (let i = 0; i < this.code.length; i++) {
         if (this.code[i] === query[i]) count++;
       }
     }
-    if (this.win === true) {
+    if (this.status === true) {
       console.log("win!!", this.code);
       return;
     } else {

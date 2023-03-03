@@ -9,10 +9,9 @@ function intro() {
   console.log("Acceptable Characters: @!*$ \n");
   console.log("Guess the 4 letter sequence \n");
 
-  console.log("use ^C to exit game.");
+  console.log("use ^C to exit game.\n");
 }
 
-console.clear();
 intro();
 while (!game.win && game.guesses) {
   console.log(game.code);

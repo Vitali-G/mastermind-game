@@ -41,7 +41,7 @@ class Mastermind {
 
     // check if lose
     if (this.guesses === 0) return "lose";
-    // decrease guess
+      // decrease guess
     this.guesses--;
 
     // if code === query they win

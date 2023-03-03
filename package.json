@@ -1,0 +1,24 @@
+{
+  "name": "mastermind-game",
+  "version": "1.0.0",
+  "description": "Mastermind, guess the bomb sequence!",
+  "main": "index.js",
+  "scripts": {
+    "dev": "node .",
+    "start": "node ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Vitali-G/mastermind-game.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Vitali-G/mastermind-game/issues"
+  },
+  "homepage": "https://github.com/Vitali-G/mastermind-game#readme",
+  "dependencies": {
+    "prompt-sync": "^4.2.0"
+  }
+}

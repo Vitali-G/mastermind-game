@@ -32,7 +32,7 @@ class Mastermind {
 
   guess() {
     const query = prompt("WHAT'S THE SEQUENCE!!! ");
-
+    console.clear()
     // format query
     if (this.code.length !== query.length) {
       console.log("Make sure your guess matches the length of the code");

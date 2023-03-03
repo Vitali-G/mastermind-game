@@ -4,10 +4,10 @@ const game = new Mastermind();
 
 function intro() {
   console.log(
-    "Welcome to mastermind, you have 10 guesses to make sure you dont blow up! \n"
+    "Welcome to MasterMind, you have 10 guesses to make sure you don't blow up! \n"
   );
   console.log("Acceptable Characters: @!*$ \n");
-  console.log("Guess the 4 letter sequence \n");
+  console.log("Guess the 4 character sequence!\n");
 
   console.log("use ^C to exit game.");
 }

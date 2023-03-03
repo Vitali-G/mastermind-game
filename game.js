@@ -2,7 +2,7 @@ class Mastermind {
   constructor() {
     this.code = this.generateCode(4);
     this.guesses = 10;
-    this.guessHistory = [];
+    this.guessHistory = {};
   }
 
   generateCode(length) {
@@ -39,7 +39,12 @@ class Mastermind {
     if (win) {
       return win;
     } else {
-      this.guessHistory.push({ prev: query, match: count, guesses: this.guesses });
+      let guess = { prev: query, match: count, guesses: this.guesses };
+      // getting the guess number and appending that to the object as a key
+      this.guessHistory = {
+        ...this.guessHistory,
+        ["guess " + (10 - this.guesses)]: guess,
+      };
       return count;
     }
   }

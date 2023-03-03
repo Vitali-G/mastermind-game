@@ -15,6 +15,6 @@ console.clear();
 intro();
 
 while (game.status === null) {
-  // console.log(game.code); -- super secret cheat to see the code lol
+  console.log(game.code); // super secret cheat to see the code lol
   game.guess();
 }

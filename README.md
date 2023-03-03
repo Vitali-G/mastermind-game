@@ -7,18 +7,18 @@
 1. To get the sample code from GitHub, use the  `git clone`  command to get a local copy of the remote repository. To clone the sample code, run the following command:
 
     ```bash
-    git clone [https://github.com/sord-dev/fp-front-end-project.git]
+    git clone [https://github.com/Vitali-G/mastermind-game.git]
     ```
 
 2. Install dependencies
 
     ``` bash
-    cd [fp-front-end-project]
+    cd [mastermind-game]
     npm i
     ```
 
-3. Compile and watch the data
+3. Run the start command
 
     ``` bash
-    npm run watch
+    npm run start
     ```

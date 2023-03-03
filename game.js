@@ -2,7 +2,7 @@ class Mastermind {
   constructor() {
     this.code = this.generateCode(4);
     this.guesses = 10;
-    this.guessHistory = {};
+    this.guessHistory = this._fill();
   }
 
   generateCode(length) {
@@ -14,6 +14,17 @@ class Mastermind {
     }
 
     return string;
+  }
+
+  _fill() {
+    let history = {}
+    let guess = { prev: "0000", match: 0, guesses: 0 };
+
+    for(let i = 0; i < this.guesses; i++){
+        history = {...history, ["guess " + (i+1)]: guess }
+    }
+
+    return history;
   }
 
   guess(query) {
